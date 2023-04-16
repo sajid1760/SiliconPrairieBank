@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <style>   
+    legend {
+      background-color: gray;
+      color: white;
+      padding: 5px 10px;
+    }
+  </style>
+
+  <title>Credit Card Data Dashboard</title>
+
+   <!-- Leaflet CSS -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+   integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+   crossorigin=""/>
+ 
+  <!-- Leaflet JavaScript code -->
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+  integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+  crossorigin=""></script>
+
+  <!-- Bootstrap Code -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css"integrity="sha384qF/QmIAj5ZaYFAeQcrQ6bfVMAh4zZlrGwTPY7T/M+iTTLJqJBJjwwnsE5Y0mV7QK"crossorigin="anonymous">
+
+ 
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+   <!-- D3 Library -->
+   <script src="https://d3js.org/d3.v5.min.js"></script>
+
+   <!-- JavaScript -->
+   <!-- <script type="text/javascript" src="js/data.js"></script>     -->
+
+   <!-- Our CSS -->
+   <link rel="stylesheet" type="text/css" href="css/referenes.css">
+
+   <!-- Tableau API -->
+   <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Start of navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+
+        <a class="navbar-brand" href="/">Silicon Prairie Bank</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav ml-auto">
+            
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Approval Forms</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/credit_card">Credit Card Approval Form</a>
+                    <a class="dropdown-item" href="/loan">Loan Application Approval Form</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Tableau Dashboards</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/tableau_cc">Credit Card Data Dashboard</a>
+                    <a class="dropdown-item" href="/tableau_cc2">Credit Card Data Dashboard Two</a>
+                    <a class="dropdown-item" href="/tableau_ld">Loan Data Dashboard</a>
+                    <a class="dropdown-item" href="/tableau_ld_map">Loan Data Map</a>
+                    <a class="dropdown-item" href="/tableau_ld_map2">Loan Approval Map</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About Us</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Data</a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                
+                    <a class="dropdown-item" href="/data_cc">Credit Card Datatable</a>
+                    <a class="dropdown-item" href="/data_l">Loan Datatable</a>
+                    <a class="dropdown-item" href="/references">References</a>
+                
+                </ul>
+            </li>
+           
+          </ul>
+          
+        </div>
+      </div>
+    </nav>
+    <!-- End of navbar -->
+
+      <br>
+      <br>
+
+      <div class="container-fluid">
+
+        <div class="row">
+
+          <div class="col-md-1 text-center"></div>
+
+          <div class="col-md-10 text-center">
+
+            <p style="font-size: 25px; font-family: Garamond; color: forestgreen">Use the filters to find interesting relationships between marital status, income, and family size of applicants for credit cards 
+              at Silicon Prairie Bank.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="container-fluid">
+
+        <tableau-viz id="tableauViz"
+            src='https://public.tableau.com/views/Project4_16788415648400/Dashboard2?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link'
+            toolbar="bottom" hide-tabs>
+        </tableau-viz>
+
+      </div>
+
+      <br>
+      <br>
+
+
+</body>
+
